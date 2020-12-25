@@ -1,0 +1,37 @@
+.Sayhi {
+    color: black;
+    font-weight: 500;
+    font-size: large;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: cubic-bezier(1, 0, 0, 1) 0.5s;
+    position: absolute;
+    right: 0px;
+}
+
+.user {
+    margin: 0.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    object-fit: 'cover';
+    background-color: #6e9afb;
+}
+
+.Sayhi:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+/* @media(max-width: 650px){
+    .Sayhi{
+        display: none;
+    }
+} */
+
+.hi {
+    margin-right: 35px;
+}

@@ -1,0 +1,34 @@
+.AddTodoMain {
+    margin-top: auto;
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddTodoMain input {
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+}
+
+.AddTodoMain input {
+    width: 70%;
+    padding: 5px;
+    height: 15px;
+    background-color: white;
+    border: none;
+    border-radius: 0px;
+}
+
+.AddTodoMain input:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.AddTodoMainBtn:hover {
+    cursor: pointer;
+}
+
+.AddTodoMainBtn {
+    display: block;
+}

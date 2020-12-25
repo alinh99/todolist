@@ -1,0 +1,31 @@
+.SideBar {
+    flex: 1;
+    background-color: #6e9afb;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    color: white;
+    display: flex;
+}
+
+.content {
+    grid-area: content;
+    position: fixed;
+    min-height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sticky-content {
+    bottom: var(--footer-height);
+    min-height: calc(100vh - var(--footer-height));
+    box-sizing: border-box;
+    --padding: 10px;
+    padding: calc(var(--header-height) + var(--padding)) var(--padding) var(--padding);
+    margin-top: calc(0px - var(--header-height));
+}
+
+@media(max-width: 650px) {
+    .SideBar {
+        display: none;
+    }
+}

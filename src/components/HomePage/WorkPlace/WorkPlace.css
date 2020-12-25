@@ -1,0 +1,12 @@
+.WorkPlace {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+}
+
+.ActionArea {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}

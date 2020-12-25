@@ -1,0 +1,17 @@
+.DropMenu{
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 6px -6px black;
+    padding: 1rem;
+}
+
+@media(max-width: 650px){
+    .DropMenu{
+        display: none;
+    }
+}
+

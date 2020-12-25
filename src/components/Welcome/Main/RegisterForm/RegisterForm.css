@@ -1,0 +1,47 @@
+.RegisterForm {
+    width: 100%;
+}
+
+.SpinnerContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.Title {
+    text-align: center;
+}
+
+.ButtonGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+Button {
+    display: block;
+    margin-top: 5px;
+    width: 95%;
+}
+
+.LoginButton {
+    height: 2rem;
+    border: 0.4px solid #d2d3c9;
+    border-radius: 8px;
+    font-size: larger;
+    font-weight: 400;
+    background: white;
+    transition: linear 0.2s;
+}
+
+Button:disabled {
+    background: #C7C6C6;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+    color: #888888;
+    text-align: center;
+}
+
+Button:not(:disabled) {
+    animation: enable 0.3s linear;
+}

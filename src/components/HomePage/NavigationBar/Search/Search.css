@@ -1,0 +1,19 @@
+.Search input {
+    height: 60%;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 8px;
+    color: black;
+    width: 40rem;
+    transition: cubic-bezier(1, 0, 0, 1) 0.5s;
+}
+
+.Search input::placeholder {
+    color: black;
+}
+
+@media(max-width: 650px) {
+    .Search {
+        display: none;
+    }
+}

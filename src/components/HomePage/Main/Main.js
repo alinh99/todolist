@@ -55,7 +55,6 @@ function Main(props){
                             clickDeleteBtn={() => deleteTasklistHandler(tasklist.id)}
                             edit={true}/>
                 </Col>
-                
     })
 
     return (

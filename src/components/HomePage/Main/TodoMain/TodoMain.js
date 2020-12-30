@@ -56,6 +56,8 @@ function TodoMain(props) {
             })
 
     }
+
+
     return (
         <Aux>
 
@@ -68,9 +70,9 @@ function TodoMain(props) {
                                     <input
                                         type="checkbox"
                                         checked={checked}
-                                        onChange={() => setChecked(!checked)} />
-
-                                    <label style={{ fontFamily: "inherit", fontWeight: "100" }}>{todoName}</label>
+                                        onChange={() => setChecked(!checked)} 
+                                        />
+                                    <label style={{ fontFamily: "inherit", fontWeight: "100"}}>{todoName}</label>
                                 </div>
                             }
                         </div>

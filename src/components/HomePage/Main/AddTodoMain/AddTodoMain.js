@@ -16,7 +16,7 @@ function AddTodoMain(props) {
         <Aux>
             <div className="AddTodoMain">
                 <FontAwesomeIcon icon={faPlus} onClick={props.click} className="AddTodoMainBtn"/>
-                <input type="text" placeholder="Add todo" onChange={changeHandler} value={props.value}/>
+                <input className="inputAdd" type="text" placeholder="Add todo" onChange={changeHandler} value={props.value}/>
             </div>
         </Aux>
     )

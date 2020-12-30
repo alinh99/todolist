@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './WorkPlace.css';
 import Aux from '../../../hoc/Axu';
 import SideBar from '../SideBar/SideBar';
@@ -24,7 +24,7 @@ function WorkPlace(props) {
     const [tasklistName, setTasklistName] = useState("");
     const [todo1Name, setTodo1Name] = useState("");
     const [todo2Name, setTodo2Name] = useState("");
-    const [showAddList, setShowAddList] =useState(false);
+    const [showAddList, setShowAddList] = useState(false);
     const [todoAddition, setTodoAddition] = useState("");
     const [shared, setShared] = useState([]);
     const [share, setShare] = useState([]);
@@ -40,7 +40,7 @@ function WorkPlace(props) {
     const [shareMessage, setShareMessage] = useState(false);
 
     useEffect(() => {
-        async function fetchTaskList(){
+        async function fetchTaskList() {
             try {
                 const request = await axios.request('/task_lists');
                 setTaskLists(request.data);
@@ -52,7 +52,7 @@ function WorkPlace(props) {
     }, [loading]);
 
     useEffect(() => {
-        async function fetchTaskList(){
+        async function fetchTaskList() {
             try {
                 const request = await axios.request('/task_lists');
                 setTaskLists(request.data);
@@ -64,14 +64,14 @@ function WorkPlace(props) {
     }, []);
 
     useEffect(() => {
-        async function fetchData () {
+        async function fetchData() {
             try {
                 const request = await axios.request('/task_lists');
                 const taskList = request.data;
                 const share = [];
                 taskList.map(taskList => {
-                    if(taskList.share_count !== 0){
-                        let object = {id: taskList.id, name: taskList.name};
+                    if (taskList.share_count !== 0) {
+                        let object = { id: taskList.id, name: taskList.name };
                         share.push(object);
                     }
                 })
@@ -84,7 +84,7 @@ function WorkPlace(props) {
     }, [loading]);
 
     useEffect(() => {
-        async function fetchData () {
+        async function fetchData() {
             try {
                 const request = await axios.request('/shared');
                 setShared(request.data)
@@ -94,9 +94,9 @@ function WorkPlace(props) {
         }
         fetchData();
     }, [])
-    
+
     useEffect(() => {
-        async function fetchData () {
+        async function fetchData() {
             try {
                 const request = await axios.request('/users');
                 setUsers(request.data);
@@ -105,16 +105,16 @@ function WorkPlace(props) {
             }
         }
         fetchData();
-    },[])
+    }, [])
 
     const logout = () => {
         store.set('isLoggedIn', false);
-        store.set('access_token',"");
+        store.set('access_token', "");
         store.set('uid', "");
         store.set('client', "");
         history.push("/account");
     };
-    
+
     const clickedLogo = () => {
         history.push('/account');
     };
@@ -130,14 +130,14 @@ function WorkPlace(props) {
     const clickShareHandler = () => {
         setController(2);
     };
-    
+
     const setTasklistsName = (taskList) => {
         setTasklistName(taskList.trim());
     }
 
     const setTodo1 = (toDo1) => {
         setTodo1Name(toDo1.trim());
-    } 
+    }
 
     const setTodo2 = (toDo2) => {
         setTodo2Name(toDo2.trim());
@@ -149,11 +149,11 @@ function WorkPlace(props) {
 
     const setTaskListId = (taskList) => {
         let tasklist = taskList;
-        if(correctTaskList === true){
+        if (correctTaskList === true) {
             setCorrectTaskList(false);
-        } 
+        }
         taskLists.map(taskList => {
-            if (taskList.name === tasklist){
+            if (taskList.name === tasklist) {
                 setCorrectTaskList(true);
                 setTaskId(taskList.id);
                 return;
@@ -162,80 +162,80 @@ function WorkPlace(props) {
     }
 
     const setUserEmail = (email) => {
-        if(correctEmail === true){
+        if (correctEmail === true) {
             setCorrectEmail(false);
         }
         users.map(user => {
-            if(user.email === email){
+            if (user.email === email) {
                 setCorrectEmail(true);
                 setId(user.id);
             }
-        })   
+        })
     }
 
     const setEdit = (permission) => {
-        if(permission === "editor"){
+        if (permission === "editor") {
             setEditPermission(true);
-        } else if(permission === "watcher"){
+        } else if (permission === "watcher") {
             setEditPermission(false);
         }
     }
 
     const submitHandler = () => {
         setLoading(true);
-        if(tasklistName === ""){
+        if (tasklistName === "") {
             setMessage(true);
             setLoading(false);
-        }else{
-            axios.post('/task_lists', JSON.stringify({"name": `${tasklistName}`}))
-            .then(res => {
-                const id = res.data.id;
-                if(todo1Name === ""){
-                    if(todo2Name === ""){
-                        setLoading(false);
-                        setMessage(false);
-                        setShowAddList(false);
-                        return;
-                    }else{
-                        axios.post(`/task_lists/${id}/todos`, JSON.stringify({"name": `${todo2Name}`}))
-                        .then(res => {
-                            setLoading(false);
-                            setMessage(false);
-                            setShowAddList(false);
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        })
-                    }
-                }else{
-                    axios.post(`/task_lists/${id}/todos`, JSON.stringify({"name": `${todo1Name}`}))
-                    .then(res => {
-                        if(todo2Name === ""){
+        } else {
+            axios.post('/task_lists', JSON.stringify({ "name": `${tasklistName}` }))
+                .then(res => {
+                    const id = res.data.id;
+                    if (todo1Name === "") {
+                        if (todo2Name === "") {
                             setLoading(false);
                             setMessage(false);
                             setShowAddList(false);
                             return;
-                        }else{
-                            axios.post(`/task_lists/${id}/todos`, JSON.stringify({"name": `${todo2Name}`}))
+                        } else {
+                            axios.post(`/task_lists/${id}/todos`, JSON.stringify({ "name": `${todo2Name}` }))
+                                .then(res => {
+                                    setLoading(false);
+                                    setMessage(false);
+                                    setShowAddList(false);
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                })
+                        }
+                    } else {
+                        axios.post(`/task_lists/${id}/todos`, JSON.stringify({ "name": `${todo1Name}` }))
                             .then(res => {
-                                setLoading(false);
-                                setMessage(false);
-                                setShowAddList(false);
+                                if (todo2Name === "") {
+                                    setLoading(false);
+                                    setMessage(false);
+                                    setShowAddList(false);
+                                    return;
+                                } else {
+                                    axios.post(`/task_lists/${id}/todos`, JSON.stringify({ "name": `${todo2Name}` }))
+                                        .then(res => {
+                                            setLoading(false);
+                                            setMessage(false);
+                                            setShowAddList(false);
+                                        })
+                                        .catch(err => {
+                                            console.log(err);
+                                        })
+                                }
                             })
                             .catch(err => {
                                 console.log(err);
                             })
-                        }
-                    })  
-                    .catch(err => {
-                        console.log(err);
-                    }) 
-                }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
 
     }
 
@@ -266,50 +266,50 @@ function WorkPlace(props) {
 
     const submitShare = () => {
         setLoading(true);
-        axios.post(`/task_lists/${taskId}/share`, {"user_id": `${id}`, "is_write":`${editPermission}`})
-        .then(res => {
-            setLoading(false);
-            setShowShareList(false);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        axios.post(`/task_lists/${taskId}/share`, { "user_id": `${id}`, "is_write": `${editPermission}` })
+            .then(res => {
+                setLoading(false);
+                setShowShareList(false);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
 
-    
-        return(
-            <Aux>
-                <div className="WorkPlace">
-                    <SideBar
-                        clickTodo={clickTodoHandler}
-                        clickInBox={clickInboxHandler}
-                        clickShare={clickShareHandler}
-                        tasklists={taskLists.length}
-                        share={share.length}
-                        shared={shared.length}
-                        controller={controller}
-                        clickedLogo={clickedLogo}
-                        />
-                    <div className="ActionArea">
-                        <NavigationBar 
-                            clickedSignOutButton={logout}/>
-                        {controller === 0 ? (<Main
-                            tasklists={taskLists}>
-                            <Modal 
-                                show={showAddList}
-                                cancel={cancelAddTaskListHandler}>
+
+    return (
+        <Aux>
+            <div className="WorkPlace">
+                <SideBar
+                    clickTodo={clickTodoHandler}
+                    clickInBox={clickInboxHandler}
+                    clickShare={clickShareHandler}
+                    tasklists={taskLists.length}
+                    share={share.length}
+                    shared={shared.length}
+                    controller={controller}
+                    clickedLogo={clickedLogo}
+                />
+                <div className="ActionArea">
+                    <NavigationBar
+                        clickedSignOutButton={logout} />
+                    {controller === 0 ? (<Main
+                        tasklists={taskLists}>
+                        <Modal
+                            show={showAddList}
+                            cancel={cancelAddTaskListHandler}>
                             <AddTaskListPanel
                                 setTaskListName={setTasklistsName}
                                 setTodo1Name={setTodo1}
                                 setTodo2Name={setTodo2}
                                 submitHandler={submitHandler}
                                 loading={loading}
-                                message={message}/>
-                            </Modal>
-                            <Modal 
-                                show={showShareList}
-                                cancel={cancelShareTaskListHandler}>
+                                message={message} />
+                        </Modal>
+                        <Modal
+                            show={showShareList}
+                            cancel={cancelShareTaskListHandler}>
                             <ShareTaskListPanel
                                 setUserEmail={setUserEmail}
                                 setTasklistName={setTaskListId}
@@ -317,25 +317,29 @@ function WorkPlace(props) {
                                 loading={loading}
                                 correctTaskList={correctTaskList}
                                 correctEmail={correctEmail}
-                                setData={setEdit}/>
-                            </Modal>
-                            <div className="TaskListOption">
-                                
-                                <FontAwesomeIcon 
-                                    icon={faPlus} 
-                                    onClick={addTasklistHandler}/>
-                                <FontAwesomeIcon 
-                                    icon={faShareSquare}
-                                    onClick={shareTasklistHandler}/>
+                                setData={setEdit} />
+                        </Modal>
+                        <div className="TaskListOption">
+                            <div className="addIconB"><p className="icon-text-add">Add todos</p>
+                                <FontAwesomeIcon
+                                    icon={faPlus}
+                                    onClick={addTasklistHandler} />
                             </div>
-                        </Main>
+                            <div className="shareIconB"><p className="icon-text-share">Share todos</p>
+                                <FontAwesomeIcon
+                                    icon={faShareSquare}
+                                    onClick={shareTasklistHandler} />
+                            </div>
+
+                        </div>
+                    </Main>
                     ) : null}
-                    {controller === 1 ? <Inbox tasklists={shared}/>  : null}
-                    {controller === 2 ? <Share tasklists={share}/> : null}
-                    </div>
+                    {controller === 1 ? <Inbox tasklists={shared} /> : null}
+                    {controller === 2 ? <Share tasklists={share} /> : null}
                 </div>
-            </Aux>
-        )
+            </div>
+        </Aux>
+    )
 }
 
 export default WorkPlace;

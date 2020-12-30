@@ -13,6 +13,7 @@
 .TaskListArea {
     padding-right: 5px;
     padding-left: 0px;
+    overflow-x: auto;
 }
 
 .row {
@@ -28,11 +29,15 @@
 }
 
 .MainDisplay:hover::-webkit-scrollbar-thumb {
-    background-color: #d4d9d7;
+    background-color: #6e9afb;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
 }
 
 .MainDisplay:hover::-webkit-scrollbar {
-    width: 5px;
+    background-color: #6e9afb;
+    border-radius: 10px;
 }
 
 .TaskListOption {
@@ -42,9 +47,38 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    right: 0px;
+    right: 300px;
 }
 
 .TaskListOption:hover {
     cursor: pointer;
+}
+
+.shareIconB {
+    margin-left: 20px;
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.addIconB {
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.icon-text-add {
+    text-align: left;
+    vertical-align: left;
+}
+
+.icon-text-share {}
+
+@media(max-width:640px) {
+    .TaskListOption {
+        top: 50px;
+        right: 100px;
+    }
 }

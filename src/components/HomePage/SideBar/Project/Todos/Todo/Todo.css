@@ -1,4 +1,4 @@
-.Todo{
+.Todo {
     display: flex;
     padding: 0.3rem;
     align-items: center;
@@ -6,23 +6,23 @@
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
 }
 
-.Todo:hover{
+.Todo:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: #6a097d;
+    background-color: #6e9afb;
 }
 
-.TodoIcon{
+.TodoIcon {
     font-size: smaller;
     margin-right: 0.5rem;
 }
 
-.TodoLabel{
+.TodoLabel {
     color: white;
     font-size: medium;
     font-weight: 200;
 }
 
-.TodoLabel{
+.TodoLabel {
     font-weight: 200;
 }

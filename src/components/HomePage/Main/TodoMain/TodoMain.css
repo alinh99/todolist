@@ -1,4 +1,4 @@
-.TodoMain{
+.TodoMain {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-.TodoMainIcon{
+.TodoMainIcon {
     margin-left: auto;
     font-size: 0.8rem;
     width: 30px;
@@ -16,23 +16,23 @@
     color: transparent;
 }
 
-.TodoMain:hover .TodoMainIcon{
+.TodoMain:hover .TodoMainIcon {
     color: black;
 }
 
-.TodoMainCheckbox{
+.TodoMainCheckbox {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.TodoMainCheckbox:hover{
+.TodoMainCheckbox:hover {
     cursor: pointer;
     transform: scale(1.02);
     overflow-y: scroll;
 }
 
-.TodoMainCheckbox input[type='text']{
+.TodoMainCheckbox input[type='text'] {
     padding: 5px;
     height: 15px;
     background-color: white;
@@ -41,3 +41,10 @@
     border-radius: 0px;
 }
 
+input[type=checkbox]:checked+label {
+    color: red;
+    text-decoration: line-through;
+}
+
+
+/*This is the MDN spec for doing this*/

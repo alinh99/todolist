@@ -7,6 +7,8 @@ import Logo from './Logo/Logo';
 import TodoMain from '../Main/TodoMain/TodoMain';
 import TaskListMain from '../Main/TasklistMain/TasklistMain';
 import Main from '../Main/Main';
+import DisplayTasklist from './DisplayTaskList/DisplayTaskList';
+
 
 class SideBar extends Component {
     
@@ -53,7 +55,11 @@ class SideBar extends Component {
                                 lineHeight: '0.2px',
                                 width: "70%"
                             }} />
-                                    {IdiomaticReactList}
+                                    {/* {IdiomaticReactList} */}
+                            <DisplayTasklist 
+                                tasklists={this.props.taskListItem}
+                                clicked={this.props.addTasklist}
+                                />
                         </div>
                     </div>
                 </div>

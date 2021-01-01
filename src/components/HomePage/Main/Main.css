@@ -41,7 +41,6 @@
 }
 
 .TaskListOption {
-    width: 50px;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
@@ -55,26 +54,31 @@
 }
 
 .shareIconB {
-    margin-left: 20px;
-    width: auto;
-    height: auto;
-    border-radius: 25px;
+    display: flex;
+    padding: 8px;
     border: 1px solid black;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 20px;
 }
 
 .addIconB {
-    width: auto;
-    height: auto;
-    border-radius: 25px;
+    display: flex;
+    padding: 8px;
     border: 1px solid black;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .icon-text-add {
-    text-align: left;
-    vertical-align: left;
+    margin-right: 5px;
 }
 
-.icon-text-share {}
+.icon-text-share {
+    margin-right: 5px;
+}
 
 @media(max-width:640px) {
     .TaskListOption {

@@ -290,6 +290,8 @@ function WorkPlace(props) {
                     shared={shared.length}
                     controller={controller}
                     clickedLogo={clickedLogo}
+                    taskListItem={taskLists}
+                    addTasklist={addTasklistHandler}
                 />
                 <div className="ActionArea">
                     <NavigationBar
